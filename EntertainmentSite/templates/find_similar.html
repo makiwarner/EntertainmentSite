@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Similar</title>
+</head>
+<body>
+    <h2>Find Similar Entertainment</h2>
+    
+    <form method="POST" action="/find-similar">
+        <label for="search">Enter a title to search:</label><br>
+        <input type="text" id="search" name="search" required><br>
+        
+        <label for="category">Do you want us to recommend a:</label><br>
+        <select id="category" name="category">
+            <option value="movie">Movie</option>
+            <option value="show">Show</option>
+            <option value="book">Book</option>
+            <option value="all">Any of the above</option>
+        </select><br><br>
+        
+        <button type="submit">Find Similar</button>
+    </form>
+    
+    {% if recommendations %}
+        <h3>Results for "{{ search_query }}":</h3>
+        <ul>
+        {% for recommendation in recommendations %}
+            <li>{{ recommendation[0] }} ({{ recommendation[1] }})</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
