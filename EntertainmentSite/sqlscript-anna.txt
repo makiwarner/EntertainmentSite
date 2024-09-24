@@ -1,0 +1,11 @@
+CREATE DATABASE movie_recommendations;
+USE movie_recommendations;
+
+
+CREATE TABLE movies (
+    id INT PRIMARY KEY,
+    title VARCHAR(255),
+    overview TEXT,
+    release_date DATE,  
+    poster_path VARCHAR(255)
+);

@@ -33,7 +33,7 @@ def get_movie_info_similar():
     if search_data['results']:
         movie_id = search_data['results'][0]['id']
         movie_url = f'{BASE_URL}/movie/{movie_id}?api_key={TMDB_API_KEY}'
-        movie_response = requests.get(movie_id)
+        movie_response = requests.get(movie_url)
         movie_metadata = movie_response.json()
 
         similar_url = f"{BASE_URL}/movie/{movie_id}/similar?api_key={TMDB_API_KEY}"
